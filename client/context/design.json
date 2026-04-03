@@ -1,0 +1,83 @@
+{
+  "designSystemName": "FoodEat Organic Modern",
+  "version": "1.0.0",
+  "principles": {
+    "aesthetic": "Organic Glassmorphism",
+    "vibe": "Warm, Appetizing, Premium, Airy",
+    "layout_strategy": "Fluid whitespace with asymmetric balance"
+  },
+  "colorPalette": {
+    "primary": "#E0915E",
+    "secondary": "#D7A87F",
+    "accent": "#F2AF00",
+    "text": {
+      "heading": "#1A1A1A",
+      "body": "#4A4A4A",
+      "light": "#FFFFFF"
+    },
+    "background": {
+      "main": "linear-gradient(135deg, #FDFCFB 0%, #E2D1C3 100%)",
+      "glass": "rgba(255, 255, 255, 0.4)",
+      "card_overlay": "rgba(255, 255, 255, 0.6)"
+    }
+  },
+  "typography": {
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "scale": {
+      "h1": { "size": "48px", "weight": "700", "lineHeight": "1.2" },
+      "h2": { "size": "36px", "weight": "600", "lineHeight": "1.3" },
+      "h3": { "size": "24px", "weight": "600" },
+      "body": { "size": "16px", "weight": "400", "lineHeight": "1.6" },
+      "label": { "size": "14px", "weight": "500", "letterSpacing": "0.05em" }
+    }
+  },
+  "effects": {
+    "glassmorphism": {
+      "blur": "12px",
+      "border": "1px solid rgba(255, 255, 255, 0.3)",
+      "boxShadow": "0 8px 32px 0 rgba(31, 38, 135, 0.07)"
+    },
+    "cardShadow": "0 10px 30px rgba(0, 0, 0, 0.05)",
+    "borderRadius": {
+      "button": "50px",
+      "card": "32px",
+      "image": "50%"
+    }
+  },
+  "components": {
+    "navigation": {
+      "style": "Minimalist",
+      "linkPadding": "0 20px",
+      "activeIndicator": "Underline thin"
+    },
+    "buttons": {
+      "primary": {
+        "bg": "#E0915E",
+        "text": "#FFFFFF",
+        "shape": "Pill",
+        "padding": "12px 32px"
+      },
+      "ghost": {
+        "bg": "transparent",
+        "border": "1px solid #E0915E",
+        "text": "#E0915E"
+      }
+    },
+    "foodCards": {
+      "layout": "Vertical stack",
+      "imageStyle": "Circular with floating shadow",
+      "background": "Glassmorphic blur-card",
+      "ratingStyle": "Star icon + numeric (Yellow/Gold color)"
+    },
+    "icons": {
+      "style": "Thin line-art",
+      "weight": "1px stroke",
+      "color": "#1A1A1A"
+    }
+  },
+  "spacing": {
+    "sectionGap": "80px",
+    "containerPadding": "5%",
+    "cardInternalPadding": "24px"
+  }
+}

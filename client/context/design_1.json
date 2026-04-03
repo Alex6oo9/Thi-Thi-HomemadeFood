@@ -1,0 +1,68 @@
+{
+  "designSystemName": "Sunkissed Harvest",
+  "creativeDirection": "Organic, Playful, Premium, Sunshine-Drenched",
+  "principles": {
+    "organic_edges": "Avoid straight horizontal lines; use torn-paper or wavy dividers between sections.",
+    "photographic_focus": "High-saturation, macro food photography is the primary visual driver.",
+    "depth_strategy": "Layering food items (fruit, nuts) so they 'spill' across section boundaries.",
+    "vibe": "Warmth and freshness over corporate efficiency."
+  },
+  "colorPalette": {
+    "primary": "#F4B72C",
+    "secondary": "#914C1D",
+    "accent": "#FFFFFF",
+    "backgrounds": {
+      "hero": "linear-gradient(to bottom, #F9D342, #F4B72C)",
+      "section_light": "#FDF7E7",
+      "section_cream": "#FEFBF0"
+    },
+    "text": {
+      "heading": "#FFFFFF",
+      "subheading": "#914C1D",
+      "body": "#4A3728"
+    }
+  },
+  "typography": {
+    "heading": {
+      "family": "Rounded Display / Bubble Serif (e.g., 'Fredoka' or 'Recoleta')",
+      "weight": "800",
+      "letterSpacing": "-0.02em"
+    },
+    "body": {
+      "family": "Soft Sans-Serif (e.g., 'Quicksand' or 'Inter')",
+      "weight": "400",
+      "lineHeight": "1.6"
+    }
+  },
+  "ui_components": {
+    "buttons": {
+      "shape": "Pill (Extra Rounded)",
+      "primary": {
+        "bg": "#914C1D",
+        "text": "#FFFFFF",
+        "shadow": "soft-drop"
+      },
+      "secondary": {
+        "bg": "#F4B72C",
+        "text": "#FFFFFF"
+      }
+    },
+    "cards": {
+      "borderRadius": "40px",
+      "background": "#FFFBF0",
+      "border": "none",
+      "elevation": "Subtle 2px blur shadow",
+      "contentAlignment": "Center"
+    },
+    "dividers": {
+      "style": "Torn Paper / Jagged Edge",
+      "usage": "Between all major background color shifts"
+    }
+  },
+  "spacing": {
+    "section_padding": "100px 5%",
+    "item_gap": "24px",
+    "overlap_margin": "-40px"
+  }
+}
+

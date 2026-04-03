@@ -1,0 +1,86 @@
+{
+    "designSystem": {
+      "principles": [
+        "Organic Minimalism: Clean, breathable layouts with generous whitespace.",
+        "Earthy Premium: Natural color tones conveying luxury and wellness.",
+        "Soft Geometry: Generous border radii to mimic natural, fluid shapes.",
+        "Subtle Depth: Soft, diffused drop shadows to elevate interactive elements."
+      ],
+      "colorPalette": {
+        "primary": {
+          "hex": "#1B4D30",
+          "usage": "Call-to-action buttons, active states, primary icons (e.g., right navigation arrow)."
+        },
+        "background": {
+          "hex": "#F4F1EB",
+          "usage": "App background, conveying warmth and natural tones."
+        },
+        "surface": {
+          "hex": "#FFFFFF",
+          "usage": "Cards, floating buttons (e.g., left navigation arrow), thumbnail backgrounds."
+        },
+        "accent": {
+          "hex": "#B89768",
+          "usage": "Ratings, highlights, matching product gold/amber tones."
+        },
+        "text": {
+          "primary": "#2C2C2C",
+          "secondary": "#7A7A7A"
+        }
+      },
+      "typography": {
+        "headings": {
+          "fontFamily": "Playfair Display, serif (or elegant sans-serif)",
+          "weight": "600",
+          "style": "Premium, slightly tracked out."
+        },
+        "body": {
+          "fontFamily": "Inter, sans-serif",
+          "weight": "400",
+          "style": "Highly legible, neutral."
+        }
+      },
+      "spacing": {
+        "base": "8px",
+        "scale": {
+          "xs": "4px",
+          "sm": "8px",
+          "md": "16px",
+          "lg": "24px",
+          "xl": "32px",
+          "xxl": "48px"
+        },
+        "guidelines": "Use 'xl' or 'xxl' between major sections. Use 'md' within component groups."
+      },
+      "components": {
+        "mainImageViewer": {
+          "borderRadius": "24px",
+          "boxShadow": "0px 10px 30px rgba(0, 0, 0, 0.05)",
+          "aspectRatio": "1:1 or 4:5"
+        },
+        "navigationArrows": {
+          "shape": "Square with rounded corners (12px radius)",
+          "size": "48px x 48px",
+          "boxShadow": "0px 4px 12px rgba(0, 0, 0, 0.1)",
+          "variants": {
+            "left": "Surface background, primary icon.",
+            "right": "Primary background, surface icon."
+          }
+        },
+        "thumbnailGallery": {
+          "borderRadius": "12px",
+          "gap": "16px",
+          "activeState": "2px solid #1B4D30 border, 100% opacity.",
+          "inactiveState": "No border, 70% opacity."
+        },
+        "buttons": {
+          "primary": {
+            "backgroundColor": "#1B4D30",
+            "color": "#FFFFFF",
+            "borderRadius": "50px (pill shape) or 12px (rounded box)",
+            "padding": "16px 32px"
+          }
+        }
+      }
+    }
+  }

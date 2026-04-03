@@ -1,0 +1,73 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment variables & secrets (NEVER commit these)
+.env
+.env.*
+*.keys
+*.pem
+*.key
+*.cert
+!.env.example
+!.env.sample
+
+# IDE and editor files
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# Test files and folders
+test-*.js
+test-*.cjs
+test-*.spec.js
+screenshot-test.cjs
+qa-test.js
+debug-*.js
+screenshots/
+qa-screenshots/
+test-results/
+playwright-report/
+e2e/
+
+# Test images and screenshots
+*.png
+*.jpg
+*.jpeg
+*.gif
+debug-homepage.png
+test-home.png
+!public/
+
+# Temporary files
+tmpclaude-*
+nul
+*.tmp
+*.temp
+
+# Testing and QA documentation
+QA-REPORT.md
+AUTH_TESTING_GUIDE.md
+UI_IMPLEMENTATION_SUMMARY.md
+UI_REDESIGN_SUMMARY.md
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Playwright
+playwright/.cache/
