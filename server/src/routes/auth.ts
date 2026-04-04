@@ -373,12 +373,18 @@ router.post('/reset-password', [
 });
 
 // Google OAuth
-router.get('/google', isGuest, passport.authenticate('google', {
-  scope: ['profile', 'email']
-}));
+router.get('/google',
+  (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return res.redirect(`${config.clientUrl}/products`);
+    }
+    next();
+  },
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
+  passport.authenticate('google', { failureRedirect: `${config.clientUrl}/login` }),
   (req, res) => {
     res.redirect(`${config.clientUrl}/products`);
   }
