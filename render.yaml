@@ -1,0 +1,51 @@
+services:
+  # ─── Backend API (Web Service) ───────────────────────────────────
+  - type: web
+    name: thithi-server
+    runtime: node
+    region: singapore
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: node dist/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: SESSION_SECRET
+        generateValue: true          # Render auto-generates a secure random value
+      - key: MONGODB_URI
+        sync: false                  # Set in dashboard: mongodb+srv://...
+      - key: BASE_URL
+        sync: false                  # Set in dashboard: https://thithi-server.onrender.com
+      - key: CLIENT_URL
+        sync: false                  # Set in dashboard: https://thithi-client.onrender.com
+      - key: CLOUDINARY_URL
+        sync: false                  # Set in dashboard: cloudinary://key:secret@cloud_name
+      - key: CLOUDINARY_UPLOAD_PRESET
+        value: thithi_products
+      - key: CLOUDINARY_FOLDER
+        value: ecommerce/products
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_CALLBACK_URL
+        sync: false                  # Set in dashboard: https://thithi-server.onrender.com/api/auth/google/callback
+      - key: RESEND_API_KEY
+        sync: false
+      - key: FROM_EMAIL
+        sync: false
+
+  # ─── Frontend (Static Site) ──────────────────────────────────────
+  - type: static
+    name: thithi-client
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false                  # Set in dashboard: https://thithi-server.onrender.com
+      - key: VITE_ENABLE_DEV_TOOLS
+        value: "false"
