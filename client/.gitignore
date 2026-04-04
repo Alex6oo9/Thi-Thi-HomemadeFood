@@ -43,7 +43,7 @@ e2e/
 *.gif
 debug-homepage.png
 test-home.png
-!public/
+!public/**
 
 # Temporary files
 tmpclaude-*
