@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import passport from '../config/passport';
-import { User } from '../models/User';
+import { User, IUser } from '../models/User';
 import { EmailVerificationToken } from '../models/EmailVerificationToken';
 import { PasswordResetToken } from '../models/PasswordResetToken';
 import { isAuthenticated, isGuest } from '../middleware/auth';
@@ -385,8 +385,14 @@ router.get('/google',
 
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: `${config.clientUrl}/login` }),
-  (req, res) => {
-    res.redirect(`${config.clientUrl}/`);
+  (req, res, next) => {
+    if (!req.user) {
+      return res.redirect(`${config.clientUrl}/login`);
+    }
+    regenerateSession(req, req.user as IUser, (err) => {
+      if (err) return next(err);
+      res.redirect(`${config.clientUrl}/`);
+    });
   }
 );
 
