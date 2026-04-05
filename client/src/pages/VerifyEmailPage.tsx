@@ -80,7 +80,17 @@ export function VerifyEmailPage() {
             <div className="text-center py-8">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Email verified!</h2>
-              <p className="text-gray-600">Redirecting you to the homepage…</p>
+              <p className="text-gray-600 mb-6">
+                Your account is now active. You'll be redirected shortly.
+              </p>
+              <Button variant="primary" fullWidth onClick={() => navigate('/', { replace: true })}>
+                Start Shopping
+              </Button>
+              <p className="mt-3">
+                <Link to="/login" className="text-sm text-burmese-ruby hover:text-red-700 font-medium">
+                  Go to Login
+                </Link>
+              </p>
             </div>
           )}
 
@@ -118,6 +128,10 @@ export function VerifyEmailPage() {
 
               <Link to="/login" className="text-sm text-burmese-ruby hover:text-red-700 font-medium">
                 Back to login
+              </Link>
+              <span className="mx-2 text-gray-300">|</span>
+              <Link to="/register" className="text-sm text-burmese-ruby hover:text-red-700 font-medium">
+                Create an account
               </Link>
             </div>
           )}

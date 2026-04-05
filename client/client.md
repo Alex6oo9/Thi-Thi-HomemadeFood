@@ -162,7 +162,6 @@ All routes are defined in `src/App.tsx`.
 | `/` | `HomePage` | No | — | `AppLayout` |
 | `/login` | `LoginPage` | No (guest only) | — | None |
 | `/register` | `RegisterPage` | No (guest only) | — | None |
-| `/products` | redirect to `/` | No | — | None |
 | `/products/:id` | `ProductDetailPage` | No | — | None |
 | `/checkout` | `CheckoutPage` | Yes | customer | `AppLayout` |
 | `/orders` | `MyOrdersPage` | Yes | customer | `AppLayout` |
@@ -492,13 +491,13 @@ The client uses **session cookie–based authentication** — no JWTs are stored
    - If not → `user` is `null`, no redirect happens at this point.
 
 2. **Login:** `POST /api/auth/login` with `{ email, password }`.
-   - Server creates session, sets `Set-Cookie: connect.sid` (httpOnly, sameSite: lax).
+   - Server regenerates session, sets `Set-Cookie: sessionId` (httpOnly, sameSite: lax/none).
    - Client receives `{ message, user }` and updates context.
 
 3. **Google OAuth:**
-   - Click → redirect to `GET /api/auth/google` on the server.
-   - Server handles OAuth callback, creates session, redirects browser to `/products`.
-   - Client calls `/api/auth/me` to hydrate user state.
+   - Click → redirect to `GET /api/auth/google` on the server (full page navigation, not fetch).
+   - Server handles OAuth callback, regenerates session, persists to MongoDB, then redirects browser to `/`.
+   - On mount at `/`, `AuthContext` calls `GET /api/auth/me` to hydrate user state.
 
 4. **Logout:** `POST /api/auth/logout` → session destroyed on server, cookie cleared.
 
@@ -531,9 +530,11 @@ In production, the `CLIENT_URL` env var on the server must match the deployed fr
 | Attribute | Value |
 |---|---|
 | `httpOnly` | `true` — client JS never reads the cookie |
-| `sameSite` | `lax` — sent on top-level navigations |
+| `sameSite` | `none` in production, `lax` in development |
 | `secure` | `false` in dev, `true` in production |
-| Name | `connect.sid` (express-session default) |
+| Name | `sessionId` (custom name set in `express-session` config) |
+
+> **Why `SameSite=None` in production:** The client and server are on different `onrender.com` subdomains. `onrender.com` is in the browser's Public Suffix List, so these are treated as cross-site. `SameSite=Lax` cookies are not sent on cross-origin fetch/XHR requests, causing every `GET /api/auth/me` call to return 401. `SameSite=None; Secure` allows the cookie to be sent cross-origin.
 
 ### Expected JSON Response Shapes
 

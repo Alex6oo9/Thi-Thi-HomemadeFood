@@ -207,15 +207,11 @@ Create a new customer account.
 **Response 201:**
 ```json
 {
-  "message": "User created successfully",
-  "user": {
-    "id": "64f...",
-    "email": "user@example.com",
-    "role": "customer",
-    "profile": { "firstName": "Aye", "lastName": "Mya" }
-  }
+  "message": "Account created! Please check your email to verify your account before logging in."
 }
 ```
+
+> No user object is returned — the account is not activated until the email verification link is clicked.
 
 **Error codes:** `400` (validation), `409` (email already registered)
 
@@ -247,7 +243,7 @@ Authenticate with email and password. Creates a session.
 }
 ```
 
-**Error codes:** `400` (validation), `401` (invalid credentials), `403` (account inactive)
+**Error codes:** `400` (validation), `401` (invalid credentials), `403` (email not verified)
 
 **Side effects:** Session is regenerated to prevent session fixation.
 
@@ -306,9 +302,21 @@ Initiate Google OAuth flow. Redirects browser to Google consent screen.
 
 ---
 
+#### `GET /api/auth/google`
+
+Initiate Google OAuth flow. If the user is already authenticated, redirects to `/` on the client immediately (no new OAuth flow started).
+
+**Auth required:** No
+
+---
+
 #### `GET /api/auth/google/callback`
 
-OAuth callback from Google. After successful authentication, redirects to `/products` on the client.
+OAuth callback from Google. After successful authentication:
+1. Session is regenerated (prevents session fixation)
+2. User is logged in via `req.login()`
+3. Session is persisted to MongoDB
+4. Browser is redirected to `/` on the client
 
 **Auth required:** No
 
