@@ -65,9 +65,6 @@ function App() {
         }
       />
 
-      {/* Google OAuth redirect - redirects to homepage */}
-      <Route path="/products" element={<Navigate to="/" replace />} />
-
       {/* Routes with navigation layout */}
       <Route
         path="/"

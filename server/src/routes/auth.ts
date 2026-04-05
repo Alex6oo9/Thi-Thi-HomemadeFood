@@ -376,7 +376,7 @@ router.post('/reset-password', [
 router.get('/google',
   (req, res, next) => {
     if (req.isAuthenticated()) {
-      return res.redirect(`${config.clientUrl}/products`);
+      return res.redirect(`${config.clientUrl}/`);
     }
     next();
   },
@@ -386,7 +386,7 @@ router.get('/google',
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: `${config.clientUrl}/login` }),
   (req, res) => {
-    res.redirect(`${config.clientUrl}/products`);
+    res.redirect(`${config.clientUrl}/`);
   }
 );
 
