@@ -88,7 +88,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: config.nodeEnv === 'production',
-    sameSite: 'lax',
+    sameSite: config.nodeEnv === 'production' ? 'none' : 'lax',
     maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
   },
   name: 'sessionId'
