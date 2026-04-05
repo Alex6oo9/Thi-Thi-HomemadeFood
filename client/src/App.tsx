@@ -3,7 +3,7 @@
  */
 
 import { useState } from 'react';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { CartSidebar } from './components/CartSidebar';
 import { ProtectedRoute } from './components/ProtectedRoute';
